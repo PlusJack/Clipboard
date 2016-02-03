@@ -7,9 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-/**
- * Created by App Development on 1/28/2016.
- */
 // In this case, the fragment displays simple text based on the page
 public class PageFragment extends Fragment {
     public static final String ARG_PAGE = "ARG_PAGE";
@@ -33,7 +30,7 @@ public class PageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_page, container, false);
+        View view = inflater.inflate(R.layout.recent_fragment, container, false);
         TextView textView = (TextView) view;
         textView.setText("Fragment #" + mPage);
         return view;
