@@ -2,60 +2,60 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
-        <dex dex="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.1.1_a78b4af67b2ddb0fb9a041a81a4f9ffd17059651.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jack\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1_0872e7c21b8efbfb172b3819aecbcbc837dea4b1.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_3139c5b001b2c93a9e1329a61d442d5a2a988bfa.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_ed3b9ea532192ad949db3e050904bcad3caa9232.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jar="H:\COMSCI\Clipboard\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="379471b2bd17d9737c050345c08e8c7d16589784">
-        <dex dex="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.1.1_0cafb0e1327611a7ef6c89c559fbd772e930d832.jar" />
+        <dex dex="H:\COMSCI\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.1.1_8e04be2c754e350b2614dcd31530372c2c97c139.jar" />
     </item>
     <item
-        jar="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_fe6ec712f893a4fff7f65c717ca3e47507d290a9.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\exploded-aar\com.android.support\percent\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="1badcc3d0af60cfcab190ea7b78d060e824cfb1e">
-        <dex dex="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-percent-23.1.1_f266ecd15a471450b7dde236fdffc562d87d2b9f.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
+        jar="H:\COMSCI\Clipboard\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
-        <dex dex="C:\Users\Jack\Documents\GitHub\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.1.1_97c6d4728d501afdabce0b30d96ccca4228d02ba.jar" />
+        <dex dex="H:\COMSCI\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.1.1_9559b6e043aa5cb2f7b22ec2ea91f40fee55bacd.jar" />
+    </item>
+    <item
+        jar="H:\COMSCI\Clipboard\app\build\intermediates\exploded-aar\com.android.support\percent\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1badcc3d0af60cfcab190ea7b78d060e824cfb1e">
+        <dex dex="H:\COMSCI\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-percent-23.1.1_ded314c682c2bc41bd3310e4bae5c281904ca770.jar" />
+    </item>
+    <item
+        jar="H:\COMSCI\Clipboard\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="H:\COMSCI\Clipboard\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_424fc1ffc23c4828da546699c5be19a9473c9420.jar" />
+    </item>
+    <item
+        jar="C:\Users Data\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="H:\COMSCI\Clipboard\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1_094c28ddbd0216bd2c1263bc25654ade14e2eb38.jar" />
+    </item>
+    <item
+        jar="H:\COMSCI\Clipboard\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="H:\COMSCI\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.1.1_27b49d598043fc660731f97bd673b1690436a0e3.jar" />
+    </item>
+    <item
+        jar="H:\COMSCI\Clipboard\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="H:\COMSCI\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_3ccd30888b063fab486f0f541bd0cbebf97899b1.jar" />
+    </item>
+    <item
+        jar="H:\COMSCI\Clipboard\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="H:\COMSCI\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_1de7ab1f64d6c68bcb1cd022934514598acf5f91.jar" />
     </item>
 
 </items>

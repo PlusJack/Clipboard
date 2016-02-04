@@ -30,6 +30,14 @@ public class PageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        /*switch (mPage) {
+            case 1:
+                View view = inflater.inflate(R.layout.recent_fragment, container, false);
+                break;
+            case 2:
+                View view = inflater.inflate(R.layout.starred_fragment, container, false);
+                break;
+        }*/
         View view = inflater.inflate(R.layout.recent_fragment, container, false);
         TextView textView = (TextView) view;
         textView.setText("Fragment #" + mPage);
