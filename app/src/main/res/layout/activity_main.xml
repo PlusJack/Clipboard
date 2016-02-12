@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <android.support.design.widget.TabLayout
-        android:id="@+id/sliding_tabs"
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         app:tabMaxWidth="0dp"
