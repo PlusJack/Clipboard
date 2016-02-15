@@ -1,27 +1,36 @@
 package com.example.appdevelopment.clipboard;
 
+import android.content.ClipDescription;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    public String readFromClipboard() { //Function(?) to get item currently on clipboard and make sure it's plain text
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        if (clipboard.hasPrimaryClip()) {
+            android.content.ClipDescription description = clipboard.getPrimaryClipDescription();
+            android.content.ClipData data = clipboard.getPrimaryClip();
+            if (data != null && description != null && description.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN))
+                return String.valueOf(data.getItemAt(0).getText());
+        }
+        return null;
+    }
 
+    ArrayList<String> recentList = new ArrayList<String>(); //Attempts to add item from readFromClipboard to an ArrayList
+    recentList.add();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             tab.setCustomView(pagerAdapter.getTabView(i));
         }
 
-        getSupportActionBar().setElevation(0);
+        getSupportActionBar().setElevation(0); //Removes the shadow below the actionbar
 
     }
 
@@ -57,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     class PagerAdapter extends FragmentPagerAdapter {
 
-        String tabTitles[] = new String[] { "Recent", "Starred" };
+        String tabTitles[] = new String[] { "RECENT", "STARRED" };
         Context context;
 
         public PagerAdapter(FragmentManager fm, Context context) {
@@ -75,9 +84,9 @@ public class MainActivity extends AppCompatActivity {
 
             switch (position) {
                 case 0:
-                    return new BlankFragment();
+                    return new RecentFragment();
                 case 1:
-                    return new BlankFragment();
+                    return new RecentFragment();
             }
 
             return null;
