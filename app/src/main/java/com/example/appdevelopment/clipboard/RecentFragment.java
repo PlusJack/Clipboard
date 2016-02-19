@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;;
+import android.view.ViewGroup;;import java.util.ArrayList;
+import java.util.List;
 
 public class RecentFragment extends Fragment {
 
@@ -31,7 +33,9 @@ public class RecentFragment extends Fragment {
 
         RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view);
         rv.setHasFixedSize(true);
-        MyAdapter adapter = new MyAdapter(new String[]{"test one", "test two", "test three", "test four", "test five" , "test six" , "test seven"});
+        List<String> list = MainActivity.getRecentList();
+        String joined = TextUtils.join(", ", list); //Converts the list into a String[]
+        MyAdapter adapter = new MyAdapter(new String[]{joined}); //Connects the String[] to the adapter
         rv.setAdapter(adapter);
 
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
