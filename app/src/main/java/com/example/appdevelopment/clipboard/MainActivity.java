@@ -3,6 +3,7 @@ package com.example.appdevelopment.clipboard;
 import android.content.ClipDescription;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.os.Looper;
 import android.support.annotation.UiThread;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,43 +12,28 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
 
-
-
-    public void readFromClipboard(View v) { //Function(?) to get item currently on clipboard and make sure it's plain text
-        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-        if (clipboard.hasPrimaryClip()) {
-            android.content.ClipDescription description = clipboard.getPrimaryClipDescription();
-            android.content.ClipData data = clipboard.getPrimaryClip();
-            if (data != null && description != null && description.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
-                String contents = String.valueOf(data.getItemAt(0).getText());
-                recentList.add(contents); //This *works*, it just simply doesn't refresh the recyclerview
-            }
-        }
+    public void onPress() {
+        RecentFragment.readFromClipboard();
     }
-
-    private static ArrayList<String> recentList = new ArrayList<>(); //Attempts to add item from readFromClipboard to an ArrayList
-
-    public static ArrayList<String> getRecentList() {
-        return recentList;
-    }
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        recentList.add("Working?"); //Test add
         setContentView(R.layout.activity_main);
 
         // Get the ViewPager and set it's PagerAdapter so that it can display items

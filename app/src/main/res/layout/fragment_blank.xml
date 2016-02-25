@@ -13,20 +13,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Check clip"
+        android:text="Check"
         android:id="@+id/check"
-        android:onClick="readFromClipboard"
-        android:layout_alignTop="@+id/refresh"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Refresh contents"
-        android:id="@+id/refresh"
-        android:onClick="adapter.notifyDataSetChanged"
+        android:onClick="onPress"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerHorizontal="true" />
 
     <!--Need to call notifyDataSetChanged, error thrown above-->
 </RelativeLayout>
