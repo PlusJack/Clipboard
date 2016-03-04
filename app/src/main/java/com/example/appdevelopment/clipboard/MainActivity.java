@@ -26,9 +26,25 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    public void onPress(View v) {
 
-    public void onPress() {
-        RecentFragment.readFromClipboard();
+        readFromClipboard();
+    }
+
+
+
+    public String readFromClipboard() { //Function(?) to get item currently on clipboard and make sure it's plain text
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        if (clipboard.hasPrimaryClip()) {
+            android.content.ClipDescription description = clipboard.getPrimaryClipDescription();
+            android.content.ClipData data = clipboard.getPrimaryClip();
+            if (data != null && description != null && description.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
+                String contents = String.valueOf(data.getItemAt(0).getText());
+                Log.d("readFromClipboard", "Working");
+                return contents;
+            }
+        }
+        return "";
     }
 
     @Override

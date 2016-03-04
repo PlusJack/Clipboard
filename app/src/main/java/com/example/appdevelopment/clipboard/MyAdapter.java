@@ -1,17 +1,23 @@
 package com.example.appdevelopment.clipboard;
 
+import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    private String[] mDataset;
+
+    public static ArrayList<String> recentList = new ArrayList<>();
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -27,11 +33,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
     }
 
+    public static ArrayList<String> getRecentList() {
+        return recentList;
+    }
+
+
+    public void addItem(String item, int position){
+        recentList.add(position, item);
+        notifyItemInserted(position);
+        Log.d("addItem", item);
+    }
+
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(String[] myDataset) {
-        mDataset = myDataset;
-    }
 
     // Create new views (invoked by the layout manager)
     @Override
@@ -47,11 +61,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.mTextView.setText(mDataset[position]);
+        holder.mTextView.setText(recentList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return recentList.size();
     }
 }
