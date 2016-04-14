@@ -16,7 +16,7 @@ import android.widget.Button;;import java.util.ArrayList;
 import java.util.List;
 
 public class RecentFragment extends Fragment {
-    public ArrayList<String> recentList;
+
 
     public RecentFragment() {
         // Required empty public constructor
@@ -31,19 +31,11 @@ public class RecentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_blank, container, false);
 
-        RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.rv_recycler_view);
-        rv.setHasFixedSize(false);
-        final MyAdapter adapter = new MyAdapter();//Connects the String[] to the adapter
-        recentList.add(MainActivity.readFromClipboard());
-        adapter.addItem(recentList.get(0), 0);
-        rv.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        rv.setLayoutManager(llm);
         Log.d("onCreateRecentFragment", "Working");
         return rootView;
 

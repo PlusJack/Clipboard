@@ -15,9 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Check"
         android:id="@+id/check"
-        android:onClick="onPress"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <!--Need to call notifyDataSetChanged, error thrown above-->
 </RelativeLayout>

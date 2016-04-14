@@ -12,6 +12,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,19 +23,20 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.mikepenz.fastadapter.adapters.FastItemAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public void onPress(View v) {
+   private RecyclerView mRecyclerView;
+   private RecyclerView.Adapter mAdapter;
+   private RecyclerView.LayoutManager mLayoutManager;
 
-        readFromClipboard();
-    }
+    private ArrayList<String> recentList = new ArrayList<String>();
 
-
-
-    public String readFromClipboard() { //Function(?) to get item currently on clipboard and make sure it's plain text
+    public void readFromClipboard() { //Function(?) to get item currently on clipboard and make sure it's plain text
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         if (clipboard.hasPrimaryClip()) {
             android.content.ClipDescription description = clipboard.getPrimaryClipDescription();
@@ -41,16 +44,21 @@ public class MainActivity extends AppCompatActivity {
             if (data != null && description != null && description.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
                 String contents = String.valueOf(data.getItemAt(0).getText());
                 Log.d("readFromClipboard", "Working");
-                return contents;
+                recentList.add(contents);
             }
         }
-        return "";
+    }
+
+    public ArrayList<String> getRecentList() {
+        return recentList;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        readFromClipboard();
 
         // Get the ViewPager and set it's PagerAdapter so that it can display items
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -69,6 +77,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         getSupportActionBar().setElevation(0); //Removes the shadow below the actionbar
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.rv_recycler_view);
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this); // Will visually update content received by RV.
+        mRecyclerView.setLayoutManager(mLayoutManager); // Connects LayoutManager to RecyclerView
+
+        // specify an adapter (see also next example)
+            /* See suggestion in #3 below for example of setting up data source. */
+        mAdapter = new MyAdapter(recentList); // Will bring in content from data source (e.g. String array) to local RV.
+        mRecyclerView.setAdapter(mAdapter); // Connects custom MyAdapter to RecyclerView.
 
     }
 
