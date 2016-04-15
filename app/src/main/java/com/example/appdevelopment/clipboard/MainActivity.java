@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<String> recentList = new ArrayList<String>();
 
-    public void readFromClipboard() { //Function(?) to get item currently on clipboard and make sure it's plain text
+    public void readFromClipboard(View v) { //Function(?) to get item currently on clipboard and make sure it's plain text
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         if (clipboard.hasPrimaryClip()) {
             android.content.ClipDescription description = clipboard.getPrimaryClipDescription();
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 String contents = String.valueOf(data.getItemAt(0).getText());
                 Log.d("readFromClipboard", "Working");
                 recentList.add(contents);
+                mAdapter.notifyDataSetChanged();
             }
         }
     }
@@ -58,25 +59,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        readFromClipboard();
-
         // Get the ViewPager and set it's PagerAdapter so that it can display items
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        //ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         PagerAdapter pagerAdapter =
                 new PagerAdapter(getSupportFragmentManager(), MainActivity.this);
-        viewPager.setAdapter(pagerAdapter);
+        //viewPager.setAdapter(pagerAdapter);
 
         // Give the TabLayout the ViewPager
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(viewPager);
+        //TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        //tabLayout.setupWithViewPager(viewPager);
 
         // Iterate over all tabs and set the custom view
-        for (int i = 0; i < tabLayout.getTabCount(); i++) {
-            TabLayout.Tab tab = tabLayout.getTabAt(i);
-            tab.setCustomView(pagerAdapter.getTabView(i));
-        }
+        //for (int i = 0; i < tabLayout.getTabCount(); i++) {
+        //    TabLayout.Tab tab = tabLayout.getTabAt(i);
+        //    tab.setCustomView(pagerAdapter.getTabView(i));
+        //}
 
-        getSupportActionBar().setElevation(0); //Removes the shadow below the actionbar
+        //getSupportActionBar().setElevation(0); //Removes the shadow below the actionbar
 
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_recycler_view);
 
