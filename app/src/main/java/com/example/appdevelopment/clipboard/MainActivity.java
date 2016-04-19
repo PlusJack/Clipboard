@@ -18,6 +18,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
@@ -90,6 +91,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // create a new view
+        TextView v = (TextView) getLayoutInflater().from(parent.getContext())
+                .inflate(R.layout.my_text_view, parent, false);
+        // set the view's size, margins, paddings and layout parameters as desired
+        // ...
+        MyAdapter.ViewHolder vh = new MyAdapter.ViewHolder(v);
+        return vh;
+    }
 
     @Override
     public void onResume() {

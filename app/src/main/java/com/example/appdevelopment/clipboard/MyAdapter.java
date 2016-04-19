@@ -17,9 +17,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView mTextView;
-        public ViewHolder(View v) {
+        public ViewHolder(TextView v) {
             super(v);
-            mTextView = (TextView) v;
+            mTextView = v;
         }
     }
 
@@ -32,12 +32,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.my_text_view, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_text_view, parent, false);
         // set the view's size, margins, paddings and layout parameters as desired
         // ...
         ViewHolder vh = new ViewHolder(v);
-        return vh;
+        return null;
     }
 
     // Replace the contents of a view (invoked by the layout manager) See where it's linked in #1 above.
