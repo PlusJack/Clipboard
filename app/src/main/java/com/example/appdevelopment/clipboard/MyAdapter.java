@@ -17,9 +17,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView mTextView;
-        public ViewHolder(TextView v) {
-            super(v);
-            mTextView = v;
+        public ViewHolder(View v) {
+                super(v);
+            mTextView = (TextView) v.findViewById(R.id.editText);
         }
     }
 
@@ -36,7 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         // set the view's size, margins, paddings and layout parameters as desired
         // ...
         ViewHolder vh = new ViewHolder(v);
-        return null;
+        return vh;
     }
 
     // Replace the contents of a view (invoked by the layout manager) See where it's linked in #1 above.
