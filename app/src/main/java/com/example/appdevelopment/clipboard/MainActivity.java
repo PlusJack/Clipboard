@@ -4,6 +4,7 @@ import android.content.ClipDescription;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Looper;
 import android.support.annotation.UiThread;
 import android.support.design.widget.TabLayout;
@@ -41,16 +42,24 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<String> recentList = new ArrayList<String>();
 
-    public void readFromClipboard(View v) { //Function(?) to get item currently on clipboard and make sure it's plain text
+
+
+    public void readFromClipboard() { //get item currently on clipboard and make sure it's plain text, then add to recentList & refresh Adapter
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         if (clipboard.hasPrimaryClip()) {
             android.content.ClipDescription description = clipboard.getPrimaryClipDescription();
             android.content.ClipData data = clipboard.getPrimaryClip();
             if (data != null && description != null && (description.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN) || description.hasMimeType(ClipDescription.MIMETYPE_TEXT_HTML))) {
                 String contents = String.valueOf(data.getItemAt(0).getText());
-                Log.d("readFromClipboard", "Working");
-                recentList.add(contents);
-                mAdapter.notifyDataSetChanged();
+                if (!recentList.contains(contents)){ //make sure item isn't the same as the last item
+                    Log.d("New clip ", contents);
+                    recentList.add(contents);
+                    mAdapter.notifyDataSetChanged();
+                }
+                else{
+                    Log.d(contents, " already exists in recentList.");
+                }
+
             }
         }
     }
@@ -65,11 +74,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         refreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
-        refreshLayout.setColorSchemeColors(Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW);
+        refreshLayout.setColorSchemeResources(R.color.refresh_1);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                readFromClipboard(v);
+                readFromClipboard();
+                refreshLayout.setRefreshing(false);
             }
         });
 
