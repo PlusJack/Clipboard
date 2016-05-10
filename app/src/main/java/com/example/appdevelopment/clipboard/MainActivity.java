@@ -25,6 +25,7 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.mikepenz.fastadapter.adapters.FastItemAdapter;
@@ -41,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     private ArrayList<String> recentList = new ArrayList<String>();
-
-
 
     public void readFromClipboard() { //get item currently on clipboard and make sure it's plain text, then add to recentList & refresh Adapter
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);

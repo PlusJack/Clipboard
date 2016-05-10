@@ -1,6 +1,8 @@
 package com.example.appdevelopment.clipboard;
 
+import android.support.annotation.StringRes;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +19,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView mTextView;
+        public TextView mDate;
         public ViewHolder(View v) {
                 super(v);
             mTextView = (TextView) v.findViewById(R.id.editText);
+            mDate = (TextView) v.findViewById(R.id.date);
         }
     }
 
@@ -44,6 +48,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
+        holder.mTextView.setEllipsize(TextUtils.TruncateAt.END);
+        holder.mTextView.setMaxLines(2);
         holder.mTextView.setText(mDataset.get(position));
 
     }
