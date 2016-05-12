@@ -5,12 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="match_parent">
+    android:layout_height="72dp">
 
 <LinearLayout
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="64dp"
+    android:layout_height="wrap_content"
     android:weightSum="1">
 
     <com.github.ivbaranov.mfb.MaterialFavoriteButton
@@ -31,7 +31,8 @@
     android:contextClickable="true"
         android:gravity="center_vertical"
         android:height="48dp"
-        android:text="Empty clip">
+        android:text="Empty clip"
+        android:paddingTop="2dp">
 
 </TextView>
 </LinearLayout>
@@ -42,6 +43,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="date"
         android:id="@+id/date"
-        android:layout_gravity="right|top" />
+        android:layout_gravity="right|top"
+        android:paddingRight="16dp" />
 
 </LinearLayout>
