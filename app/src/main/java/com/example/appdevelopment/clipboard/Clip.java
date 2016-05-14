@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Clip {
     private String mContents;
-    private boolean mSaved;
+    public boolean mFavorite;
     private String mDate;
 
     public Clip(String contents, String date, boolean saved) {
         mContents = contents;
-        mSaved = saved;
+        mFavorite = saved;
         mDate = date;
     }
 
@@ -18,14 +18,18 @@ public class Clip {
     }
 
     public boolean isSaved() {
-        return mSaved;
+        return mFavorite;
+    }
+
+    public String getDate() {
+        return mDate;
     }
 
     public ArrayList<Clip> createClipsList(int numClips) {
         ArrayList<Clip> Clips = new ArrayList<Clip>();
 
         for (int i = 1; i <= numClips; i++) {
-            Clips.add(new Clip(mContents, mDate, mSaved));
+            Clips.add(new Clip(mContents, mDate, mFavorite));
         }
 
         return Clips;

@@ -1,17 +1,22 @@
 package com.example.appdevelopment.clipboard;
 
+import android.content.Context;
 import android.support.annotation.StringRes;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.github.ivbaranov.mfb.MaterialFavoriteButton;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private ArrayList<String> mDataset;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -20,15 +25,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         // each data item is just a string in this case
         public TextView mTextView;
         public TextView mDate;
+        public MaterialFavoriteButton favorite;
         public ViewHolder(View v) {
                 super(v);
             mTextView = (TextView) v.findViewById(R.id.editText);
             mDate = (TextView) v.findViewById(R.id.date);
+            favorite = (com.github.ivbaranov.mfb.MaterialFavoriteButton) v.findViewById(R.id.fav);
+
         }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(ArrayList<String> myDataset) { // Back in the myActivity class you could do something like:
+    private ArrayList<Clip> mDataset;
+    public MyAdapter(ArrayList<Clip> myDataset) { // Back in the myActivity class you could do something like:
         mDataset = myDataset;
     }
 
@@ -36,6 +45,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_text_view, parent, false);
         // set the view's size, margins, paddings and layout parameters as desired
         // ...
@@ -48,11 +59,42 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
+        final Clip clip = mDataset.get(position);
         holder.mTextView.setEllipsize(TextUtils.TruncateAt.END);
         holder.mTextView.setMaxLines(2);
-        holder.mTextView.setText(mDataset.get(position));
+        holder.mTextView.setText(clip.getContents());
+
+        holder.mDate.setText(clip.getDate());
+
+        holder.favorite.setOnFavoriteChangeListener(
+                new MaterialFavoriteButton.OnFavoriteChangeListener() {
+                    @Override
+                    public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
+                        if (favorite) {
+                            clip.mFavorite = true;
+                            Log.d("mFavorite", " is now true.");
+                        } else {
+                            clip.mFavorite = false;
+                            Log.d("mFavorite", " is now false");
+                        }
+                    }
+                });
+
+        holder.favorite.setOnFavoriteAnimationEndListener(
+                new MaterialFavoriteButton.OnFavoriteAnimationEndListener() {
+                    @Override
+                    public void onAnimationEnd(MaterialFavoriteButton buttonView, boolean favorite) {
+                        //
+                    }
+                });
 
     }
+
+    public String getContents(int position){ //Method to return the contents of any given clip
+        Clip clip = mDataset.get(position);
+        return clip.getContents();
+    }
+
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override

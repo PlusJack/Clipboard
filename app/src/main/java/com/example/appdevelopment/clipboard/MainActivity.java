@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Looper;
 import android.support.annotation.UiThread;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -28,9 +29,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.github.ivbaranov.mfb.MaterialFavoriteButton;
 import com.mikepenz.fastadapter.adapters.FastItemAdapter;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,7 +46,19 @@ public class MainActivity extends AppCompatActivity {
     private SwipeRefreshLayout refreshLayout;
 
 
-    private ArrayList<String> recentList = new ArrayList<String>();
+    public ArrayList<Clip> clipList = new ArrayList<Clip>();
+
+    public Boolean checkDuplicate(String toMatchString) {
+
+        for (int i = 0; i < clipList.size(); i++) {
+            Clip clip = clipList.get(i);
+            if (clip.getContents().equals(toMatchString)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public void readFromClipboard() { //get item currently on clipboard and make sure it's plain text, then add to recentList & refresh Adapter
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
@@ -50,9 +67,11 @@ public class MainActivity extends AppCompatActivity {
             android.content.ClipData data = clipboard.getPrimaryClip();
             if (data != null && description != null && (description.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN) || description.hasMimeType(ClipDescription.MIMETYPE_TEXT_HTML))) {
                 String contents = String.valueOf(data.getItemAt(0).getText());
-                if (!recentList.contains(contents)){ //make sure item isn't the same as the last item
+                if (!checkDuplicate(contents)){ //make sure item isn't the same as the last item
+                    DateFormat df = new SimpleDateFormat("MM/dd/yyyy, hh:mm");
+                    String date = df.format(Calendar.getInstance().getTime());
                     Log.d("New clip ", contents);
-                    recentList.add(contents);
+                    clipList.add(0, new Clip(contents, date, false));
                     mAdapter.notifyDataSetChanged();
                 }
                 else{
@@ -63,14 +82,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public ArrayList<String> getRecentList() {
-        return recentList;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         refreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
         refreshLayout.setColorSchemeResources(R.color.refresh_1);
@@ -84,8 +102,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Get the ViewPager and set it's PagerAdapter so that it can display items
         //ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        PagerAdapter pagerAdapter =
-                new PagerAdapter(getSupportFragmentManager(), MainActivity.this);
         //viewPager.setAdapter(pagerAdapter);
 
         // Give the TabLayout the ViewPager
@@ -108,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
         // specify an adapter (see also next example)
             /* See suggestion in #3 below for example of setting up data source. */
-        mAdapter = new MyAdapter(recentList); // Will bring in content from data source (e.g. String array) to local RV.
+        mAdapter = new MyAdapter(clipList); // Will bring in content from data source (e.g. String array) to local RV.
         mRecyclerView.setAdapter(mAdapter); // Connects custom MyAdapter to RecyclerView.
 
     }
@@ -121,55 +137,6 @@ public class MainActivity extends AppCompatActivity {
         // ...
         MyAdapter.ViewHolder vh = new MyAdapter.ViewHolder(v);
         return vh;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-
-    class PagerAdapter extends FragmentPagerAdapter {
-
-        String tabTitles[] = new String[] { "RECENT", "STARRED" };
-        Context context;
-
-        public PagerAdapter(FragmentManager fm, Context context) {
-            super(fm);
-            this.context = context;
-        }
-
-        @Override
-        public int getCount() {
-            return tabTitles.length;
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-
-            switch (position) {
-                case 0:
-                    return new RecentFragment();
-                case 1:
-                    return new RecentFragment();
-            }
-
-            return null;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            // Generate title based on item position
-            return tabTitles[position];
-        }
-
-        public View getTabView(int position) {
-            View tab = LayoutInflater.from(MainActivity.this).inflate(R.layout.custom_tab, null);
-            TextView tv = (TextView) tab.findViewById(R.id.custom_text);
-            tv.setText(tabTitles[position]);
-            return tab;
-        }
-
     }
 }
 
