@@ -34,4 +34,8 @@ public class Clip {
 
         return Clips;
     }
+
+    public String toString() {
+        return getContents() + ", " + getDate() + ", " + isSaved();
+    }
 }

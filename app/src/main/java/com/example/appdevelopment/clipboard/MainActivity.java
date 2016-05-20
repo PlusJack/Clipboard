@@ -3,40 +3,19 @@ package com.example.appdevelopment.clipboard;
 import android.content.ClipDescription;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.graphics.Color;
-import android.os.AsyncTask;
-import android.os.Looper;
-import android.support.annotation.UiThread;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.TextView;
-
-import com.github.ivbaranov.mfb.MaterialFavoriteButton;
-import com.mikepenz.fastadapter.adapters.FastItemAdapter;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     public ArrayList<Clip> clipList = new ArrayList<Clip>();
 
     public Boolean checkDuplicate(String toMatchString) {
-
         for (int i = 0; i < clipList.size(); i++) {
             Clip clip = clipList.get(i);
             if (clip.getContents().equals(toMatchString)) {
@@ -132,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         TextView v = (TextView) getLayoutInflater().from(parent.getContext())
-                .inflate(R.layout.my_text_view, parent, false);
+                .inflate(R.layout.clip_object, parent, false);
         // set the view's size, margins, paddings and layout parameters as desired
         // ...
         MyAdapter.ViewHolder vh = new MyAdapter.ViewHolder(v);

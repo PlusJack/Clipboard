@@ -1,22 +1,21 @@
 package com.example.appdevelopment.clipboard;
 
 import android.content.Context;
-import android.support.annotation.StringRes;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.github.ivbaranov.mfb.MaterialFavoriteButton;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+
+    Clip clip;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -47,7 +46,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         // create a new view
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_text_view, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.clip_object, parent, false);
         // set the view's size, margins, paddings and layout parameters as desired
         // ...
         ViewHolder vh = new ViewHolder(v);
@@ -59,12 +58,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final Clip clip = mDataset.get(position);
+        clip = mDataset.get(position);
         holder.mTextView.setEllipsize(TextUtils.TruncateAt.END);
         holder.mTextView.setMaxLines(2);
         holder.mTextView.setText(clip.getContents());
 
+            Log.d(String.valueOf(clip), String.valueOf(mDataset.get(position).isSaved())); //literally what is happening here
+                holder.favorite.setFavorite(mDataset.get(position).isSaved(), false);
+
         holder.mDate.setText(clip.getDate());
+
 
         holder.favorite.setOnFavoriteChangeListener(
                 new MaterialFavoriteButton.OnFavoriteChangeListener() {
@@ -72,10 +75,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                     public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
                         if (favorite) {
                             clip.mFavorite = true;
-                            Log.d("mFavorite", " is now true.");
+                            Log.d(clip.toString(), " set to true.");
                         } else {
                             clip.mFavorite = false;
-                            Log.d("mFavorite", " is now false");
+                            Log.d(clip.toString(), " is now false");
                         }
                     }
                 });
