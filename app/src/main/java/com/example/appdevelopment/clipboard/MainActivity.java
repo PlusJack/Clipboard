@@ -107,13 +107,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyAdapter.myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         TextView v = (TextView) getLayoutInflater().from(parent.getContext())
                 .inflate(R.layout.clip_object, parent, false);
         // set the view's size, margins, paddings and layout parameters as desired
         // ...
-        MyAdapter.ViewHolder vh = new MyAdapter.ViewHolder(v);
+        MyAdapter.myViewHolder vh = new MyAdapter.myViewHolder(v);
         return vh;
     }
 }
