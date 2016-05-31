@@ -70,9 +70,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
 
         holder.mDate.setText(clip.getDate());
 
-        MyOnFavoriteChangeListener mFavChangeListner = new MyOnFavoriteChangeListener(clip);
+        MyOnFavoriteChangeListener mFavChangeListener = new MyOnFavoriteChangeListener(clip);
 
-        holder.favorite.setOnFavoriteChangeListener(mFavChangeListner);
+        holder.favorite.setOnFavoriteChangeListener(mFavChangeListener);
 //        holder.favorite.setOnFavoriteChangeListener(
 //                new MaterialFavoriteButton.OnFavoriteChangeListener() {
 //                    @Override
@@ -89,8 +89,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
 
     }
 
-
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return mDataset.size();

@@ -1,3 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.mikepenz\fastadapter-extensions\1.4.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ac8e4afe39cb6ac385c118041976fe4c5dbd1eb2">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.mikepenz-fastadapter-extensions-1.4.1_3879602f6b661ebb943d944c8fb680a186fb4e08.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.3.0_63d110e2e40b768e7b811a246c31184d2fc60ed5.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.3.0\support-annotations-23.3.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\support-annotations-23.3.0_ed87f6a1c91e938c554894eb057f11c36d34376d.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\io.fabric.sdk.android\fabric\1.3.10\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="a5db9a2dd46d84285ef737f65030b74b6e8ee2a4">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\io.fabric.sdk.android-fabric-1.3.10_b65fa15f1019a26537561697d8e7a60b9df7f11d.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.3.0_a5048a012741b9357811ba34f6db7a18e7529cd3.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="cb86970df0f0f25f766d320b279c7858c1ca0003">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.2.1_fa16cd476cd392c6363375310a336cca2894c05a.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.mikepenz\fastadapter\1.4.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="4c5bfb989e99b9308bcbe7ad2dfd56fa81e63440">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.mikepenz-fastadapter-1.4.1_4e0ed458dfa1f96b3c6ed6818b11148d81cd2525.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.3.0_f95aab91bc86df7a6c77555019e40ef265f5a68f.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.android.support\percent\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ce16cf844ef6f424adb546dd8f9b07cb03c5bf52">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-percent-23.2.1_5cef4816c8fe9c89c7e362ab79d7bddda1c18843.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.3.0_85c57fa922d85d54791a70ce53fedca644f997b6.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.github.ivbaranov\materialfavoritebutton\0.1.2\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="1fe3cd1f86db60e5e69ec5c4a68ed5d3aea57909">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.github.ivbaranov-materialfavoritebutton-0.1.2_8ad5ddaf757d092dcbe363ead2ebe431d32bdd81.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\beta\1.1.4\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ad5bb101ced4d3939225c9b57e5a3d81547c1fbb">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.crashlytics.sdk.android-beta-1.1.4_ab51fa579c26b416234163fc0ac6dde6b0755eda.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.2.1_08ac86b9bf9f29a40bfbd1a7bb36f7f8d5157058.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\answers\1.3.6\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="9af3b9b8114e685291aa00e6572b0a9131244956">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.crashlytics.sdk.android-answers-1.3.6_88ffd5d209a984972158b48a9c232ce0d8b496d1.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics-core\2.3.8\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="c9ef45dcbd082cd63aac09a5e2cd443adb5df837">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.crashlytics.sdk.android-crashlytics-core-2.3.8_c4b8fe9e8e9d35312c2f8e22922b6ca32089a926.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics\2.5.5\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="611605b6b640c1558f9bdea41de8ff837ab68ca8">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.crashlytics.sdk.android-crashlytics-2.5.5_408ace1ead82f52230ddac547d0ccb0c1078b5e3.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\libs\internal_impl-23.3.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\internal_impl-23.3.0_9a5d9a367e9d3183963cac97e3e0710560b0d174.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.mikepenz\materialize\0.8.8\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="197c431b8fc427f77e02997e299bd6b9bef58ede">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.mikepenz-materialize-0.8.8_ae7a4ef83299cbf3cb6c3a8f2a7cd4add5e0f634.jar" />
+    </item>
+    <item
+        jar="C:\User Data\Clipboard\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="C:\User Data\Clipboard\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.3.0_d8cf52baa4fb8c8b6c7070889d0e9a55a654cc3c.jar" />
+    </item>
+
+</items>

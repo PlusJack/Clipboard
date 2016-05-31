@@ -4,9 +4,7 @@ import android.util.Log;
 
 import com.github.ivbaranov.mfb.MaterialFavoriteButton;
 
-/**
- * Created by 17jphillips on 5/27/2016.
- */
+
 public class MyOnFavoriteChangeListener implements MaterialFavoriteButton.OnFavoriteChangeListener {
 
     private Clip clip;
@@ -26,7 +24,7 @@ public class MyOnFavoriteChangeListener implements MaterialFavoriteButton.OnFavo
             Log.d(clip.toString(), " set to true.");
         } else {
             clip.mFavorite = false;
-            Log.d(clip.toString(), " is now false");
+            Log.d(clip.toString(), " set to false.");
         }
     }
 }
