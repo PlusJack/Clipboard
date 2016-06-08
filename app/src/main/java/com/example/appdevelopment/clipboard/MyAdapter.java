@@ -15,8 +15,6 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
 
-    Clip clip;
-
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -56,10 +54,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
 
     // Replace the contents of a view (invoked by the layout manager) See where it's linked in #1 above.
     @Override
-    public void onBindViewHolder(myViewHolder holder, int position) {
+    public void onBindViewHolder(final myViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        clip = mDataset.get(position);
+        Clip clip = mDataset.get(position);
+
         holder.mTextView.setEllipsize(TextUtils.TruncateAt.END);
         holder.mTextView.setMaxLines(2);
         holder.mTextView.setText(clip.getContents());
@@ -70,22 +69,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
 
         holder.mDate.setText(clip.getDate());
 
-        MyOnFavoriteChangeListener mFavChangeListener = new MyOnFavoriteChangeListener(clip);
+        holder.favorite.setOnFavoriteChangeListener(
+                new MaterialFavoriteButton.OnFavoriteChangeListener() {
+                    @Override
+                    public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
+                        Clip newClip = mDataset.get(holder.getAdapterPosition());
 
-        holder.favorite.setOnFavoriteChangeListener(mFavChangeListener);
-//        holder.favorite.setOnFavoriteChangeListener(
-//                new MaterialFavoriteButton.OnFavoriteChangeListener() {
-//                    @Override
-//                    public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
-//                        if (favorite) {
-//                            clip.mFavorite = true;
-//                            Log.d(clip.toString(), " set to true.");
-//                        } else {
-//                            clip.mFavorite = false;
-//                            Log.d(clip.toString(), " is now false");
-//                        }
-//                    }
-//                });
+                        if (favorite) {
+                            newClip.mFavorite = true;
+                            Log.d(newClip.toString(), " set to true.");
+                        } else {
+                            newClip.mFavorite = false;
+                            Log.d(newClip.toString(), " is now false");
+                        }
+                    }
+                });
 
     }
 
