@@ -1,5 +1,8 @@
 package com.example.appdevelopment.clipboard;
 
+import android.graphics.Color;
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class Clip {

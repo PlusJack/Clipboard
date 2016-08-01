@@ -1,6 +1,7 @@
 package com.example.appdevelopment.clipboard;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
@@ -23,11 +24,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
         public TextView mTextView;
         public TextView mDate;
         public MaterialFavoriteButton favorite;
+        public View line;
         public myViewHolder(View v) {
             super(v);
             mTextView = (TextView) v.findViewById(R.id.editText);
             mDate = (TextView) v.findViewById(R.id.date);
             favorite = (com.github.ivbaranov.mfb.MaterialFavoriteButton) v.findViewById(R.id.fav);
+            line = v.findViewById(R.id.line);
 
 
         }
@@ -58,6 +61,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         Clip clip = mDataset.get(position);
+        Clip newest =  mDataset.get(mDataset.size() -1);
 
         holder.mTextView.setEllipsize(TextUtils.TruncateAt.END);
         holder.mTextView.setMaxLines(2);
@@ -66,8 +70,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
         // Only place logging happens. ==> This method is called for every position of the mDataset array - every time we pull/refresh.
         Log.d(String.valueOf(clip), String.valueOf(clip.isSaved())); //literally what is happening here
         holder.favorite.setFavorite(clip.isSaved(), false);
-
         holder.mDate.setText(clip.getDate());
+
+        if (clip == newest) {
+            holder.line.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        }
+
+        if (clip != newest){
+            holder.line.setBackgroundColor(Color.parseColor("#EEEEEE"));
+        }
 
         holder.favorite.setOnFavoriteChangeListener(
                 new MaterialFavoriteButton.OnFavoriteChangeListener() {

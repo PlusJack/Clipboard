@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="72dp">
+    android:layout_height="100dp"
+    android:background="#ffffff"
+    android:translationZ="2dp">
 
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:weightSum="1">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="date"
+        android:id="@+id/date"
+        android:layout_gravity="right|top"
+        android:paddingRight="16dp"
+        android:paddingTop="0dp"
+        android:layout_below="@+id/fav"
+        android:layout_alignParentEnd="true"
+        android:textColor="#7E7E7E" />
 
     <com.github.ivbaranov.mfb.MaterialFavoriteButton
         android:id="@+id/fav"
         android:layout_width="10dp"
         android:layout_height="10dp"
         app:mfb_padding="10"
-        android:layout_marginLeft="8dp" />
+        android:layout_marginLeft="8dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="false" />
 
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -33,18 +46,25 @@
         android:gravity="center_vertical"
         android:height="48dp"
         android:text="Empty clip"
-        android:paddingTop="2dp">
+        android:layout_alignTop="@+id/fav"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/fav"
+        android:paddingTop="2dp"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="false"
+        android:textColor="#424242">
 
 </TextView>
-</LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="date"
-        android:id="@+id/date"
-        android:layout_gravity="right|top"
-        android:paddingRight="16dp" />
+    <View
+        android:layout_height="1dp"
+        android:layout_width="fill_parent"
+        android:background="#eeeeee"
+        android:layout_alignParentTop="false"
+        android:layout_toEndOf="@+id/fav"
+        android:layout_alignParentBottom="true"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentRight="true"
+        android:id="@+id/line" />
 
-</LinearLayout>
+</RelativeLayout>
