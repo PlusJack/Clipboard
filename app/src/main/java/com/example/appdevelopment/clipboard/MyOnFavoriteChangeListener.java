@@ -18,9 +18,11 @@ public class MyOnFavoriteChangeListener implements MaterialFavoriteButton.OnFavo
 //        MyAdapter.myViewHolder.favorite.setFavorite(mDataset.get(position).isSaved(), false);
 //    }
 
-    public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite){
+    public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
+
         if (favorite) {
             clip.mFavorite = true;
+            //File file = new File(this.getFilesDir().toString()+"/ClipStorage");
             Log.d(clip.toString(), " set to true.");
         } else {
             clip.mFavorite = false;
