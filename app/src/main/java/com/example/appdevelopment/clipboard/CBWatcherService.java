@@ -30,12 +30,18 @@ public class CBWatcherService extends Service {
     @Override
     public void onCreate() {
         ((ClipboardManager) getSystemService(CLIPBOARD_SERVICE)).addPrimaryClipChangedListener(listener);
+
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         File directory = getFilesDir();
         File file = new File(directory, "ClipStorage");
+
+        ClipboardManager clipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+
+        clipboard.addPrimaryClipChangedListener(listener);
+
 
         if (!file.exists()) { file.mkdir(); }
         return START_STICKY;

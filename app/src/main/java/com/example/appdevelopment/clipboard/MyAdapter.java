@@ -1,7 +1,6 @@
 package com.example.appdevelopment.clipboard;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
@@ -122,8 +121,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
     public void onBindViewHolder(final myViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
+        //Collections.reverse(mDataset);
         Clip clip = mDataset.get(position);
-        Clip newest =  mDataset.get(mDataset.size() -1);
 
         holder.mTextView.setEllipsize(TextUtils.TruncateAt.END);
         holder.mTextView.setMaxLines(2);
@@ -133,14 +132,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myViewHolder> {
         Log.d(String.valueOf(clip), String.valueOf(clip.isSaved())); //literally what is happening here
         holder.favorite.setFavorite(clip.isSaved(), false);
         holder.mDate.setText(clip.getDate());
-
-        if (clip == newest) {
-            holder.line.setBackgroundColor(Color.parseColor("#FFFFFF"));
-        }
-
-        if (clip != newest){
-            holder.line.setBackgroundColor(Color.parseColor("#EEEEEE"));
-        }
 
         holder.favorite.setOnFavoriteChangeListener(
                 new MaterialFavoriteButton.OnFavoriteChangeListener() {

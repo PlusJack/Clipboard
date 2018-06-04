@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager (this); // Will visually update content received by RV.
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));; // Connects LayoutManager to RecyclerView
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true));; // Connects LayoutManager to RecyclerView
 
         // specify an adapter (see also next example)
             /* See suggestion in #3 below for example of setting up data source. */
